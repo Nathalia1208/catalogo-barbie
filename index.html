@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbie's Magical Movie Catalog</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fde7f0, #f8c2d8);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #e91e63;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin: 10px auto;
+        }
+
+        /* Movie Catalog Grid */
+        .movie-catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 40px auto;
+        }
+
+        /* Individual Movie Card */
+        .movie-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .movie-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(233, 30, 99, 0.2);
+        }
+
+        .movie-card img.poster {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+        }
+
+        .movie-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .movie-info h2 {
+            font-size: 1.5rem;
+            color: #c2185b;
+            margin: 0 0 10px 0;
+        }
+
+        /* Details Button */
+        .details-btn {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .details-btn:hover {
+            background-color: #ad1457;
+        }
+
+        /* Hidden Details Section */
+        .movie-details {
+            padding: 0 25px 25px 25px;
+            text-align: left;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 20px;
+        }
+
+        .movie-details h3 {
+            color: #e91e63;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .movie-details p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Helper class to hide elements */
+        .hidden {
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #ad1457;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Barbie's Magical Movie Catalog</h1>
+        <p>Welcome to a wondrous collection of Barbie's most enchanting adventures! Explore her timeless tales of courage, friendship, and believing in yourself.</p>
+    </header>
+
+    <main class="movie-catalog">
+
+        <section class="movie-card">
+            <img class="poster" src="BarbieintheNutcracker.jpg" alt="Poster for Barbie in the Nutcracker">
+            <div class="movie-info">
+                <h2>Barbie in the Nutcracker (2001)</h2>
+                <button class="details-btn" data-target="details-1">Show Details</button>
+                <div id="details-1" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Clara receives a beautiful wooden Nutcracker which magically comes to life to protect her from the evil Mouse King. She embarks on a journey to find the Sugarplum Princess and break the spell.</p>
+                    <h3>Moral of the Story</h3><p>Anything is possible if you are brave, clever, and believe in yourself.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="Barbie_Rapunzel.jpg" alt="Poster for Barbie as Rapunzel">
+            <div class="movie-info">
+                <h2>Barbie as Rapunzel (2002)</h2>
+                <button class="details-btn" data-target="details-2">Show Details</button>
+                <div id="details-2" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Trapped in a tower by the evil witch Gothel, Rapunzel discovers a magic paintbrush that allows her to paint portals and escape her prison, leading her to find love and her true destiny.</p>
+                    <h3>Moral of the Story</h3><p>Creativity and love can change the world. Honesty will always set you free.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="Barbie_of_Swan_Lake.jpg" alt="Poster for Barbie of Swan Lake">
+            <div class="movie-info">
+                <h2>Barbie of Swan Lake (2003)</h2>
+                <button class="details-btn" data-target="details-3">Show Details</button>
+                <div id="details-3" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Odette, a baker's daughter, follows a unicorn into an enchanted forest. There, the evil wizard Rothbart curses her to be a swan by day. She must find her courage to save the forest and break the spell.</p>
+                    <h3>Moral of the Story</h3><p>You are braver than you think. Even an ordinary person can do extraordinary things.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="Barbie_as_the_Princess_and_the_Pauper_poster.jpg" alt="Poster for The Princess and the Pauper">
+            <div class="movie-info">
+                <h2>The Princess and the Pauper (2004)</h2>
+                <button class="details-btn" data-target="details-4">Show Details</button>
+                <div id="details-4" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Princess Anneliese and the poor seamstress Erika, two identical girls, switch places to save the kingdom from the villainous Preminger. Their friendship blossoms as they follow their dreams.</p>
+                    <h3>Moral of the Story</h3><p>Live your dream. True freedom comes from following your heart and being true to yourself.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="movie-card">
+            <img class="poster" src="Barbie_Fairytopia.jpg" alt="Poster for Barbie Fairytopia">
+            <div class="movie-info">
+                <h2>Barbie: Fairytopia (2005)</h2>
+                <button class="details-btn" data-target="details-5">Show Details</button>
+                <div id="details-5" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Elina, a wingless flower fairy, must embark on a journey to find the Guardian Fairy Azura when a sickness begins to kill all the flowers and stop the fairies from flying in her home of Magic Meadow.</p>
+                    <h3>Moral of the Story</h3><p>What makes you different is what makes you special. True wings are earned through courage and friendship.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="Barbie_and_the_Magic_of_Pegasus.png" alt="Poster for Barbie and the Magic of Pegasus">
+            <div class="movie-info">
+                <h2>The Magic of Pegasus (2005)</h2>
+                <button class="details-btn" data-target="details-6">Show Details</button>
+                <div id="details-6" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Princess Annika escapes the clutches of the evil wizard, Wenlock, with the help of a magnificent winged horse, Brietta. Together they must build the Wand of Light to break Wenlock's spells.</p>
+                    <h3>Moral of the Story</h3><p>There is always hope. Family, whether by birth or by choice, is the greatest strength.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="Barbie_diario.jpg" alt="Poster for The Barbie Diaries">
+            <div class="movie-info">
+                <h2>The Barbie Diaries (2006)</h2>
+                <button class="details-btn" data-target="details-7">Show Details</button>
+                <div id="details-7" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>In this modern tale, high school sophomore Barbie finds confidence through a magical diary that makes her dreams come true, but she soon learns the importance of hard work and being herself.</p>
+                    <h3>Moral of the Story</h3><p>Confidence comes from believing in yourself, not from magic. Good things happen when you work for them.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="Barbie_mermaidia.jpg" alt="Poster for Barbie Fairytopia: Mermaidia">
+            <div class="movie-info">
+                <h2>Fairytopia: Mermaidia (2006)</h2>
+                <button class="details-btn" data-target="details-8">Show Details</button>
+                <div id="details-8" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Elina travels to Mermaidia to save her friend Prince Nalu from the clutches of the evil Laverna. To do so, she must make a great sacrifice: her wings for a mermaid's tail.</p>
+                    <h3>Moral of the Story</h3><p>True friendship requires sacrifice. Trust is the most powerful magic of all.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="Barbie_12_Dancing_Princesses.png" alt="Poster for 12 Dancing Princesses">
+            <div class="movie-info">
+                <h2>The 12 Dancing Princesses (2006)</h2>
+                <button class="details-btn" data-target="details-9">Show Details</button>
+                <div id="details-9" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Princess Genevieve and her eleven sisters discover a secret entrance to a magical world where they can dance all night. But when their father is in danger, they must use their unity to save him and the kingdom.</p>
+                    <h3>Moral of the Story</h3><p>Together, there's nothing you can't do. The big and small differences between us make our family strong.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="Barbie_ilha.jpg" alt="Poster for Barbie as the Island Princess">
+            <div class="movie-info">
+                <h2>Barbie as the Island Princess (2007)</h2>
+                <button class="details-btn" data-target="details-10">Show Details</button>
+                <div id="details-10" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>After being shipwrecked on an island as a child, Princess Rosella grows up with a family of loving animals. When a prince discovers their island paradise, she journeys to his kingdom and uncovers her past.</p>
+                    <h3>Moral of the Story</h3><p>Love can build a bridge to wherever you want to go. Being true to who you are is your greatest gift.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="Barbiemagiadearcoiris.jpg" alt="Poster for Barbie Fairytopia: Magic of the Rainbow">
+            <div class="movie-info">
+                <h2>Fairytopia: Magic of the Rainbow (2007)</h2>
+                <button class="details-btn" data-target="details-25">Show Details</button>
+                <div id="details-25" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Elina travels to the Crystal Palace to attend fairy school and learn the annual Flight of Spring. However, the evil Laverna returns with a plan to plunge Fairytopia into a ten-year winter. Elina and her new friends must work together to stop her.</p>
+                    <h3>Moral of the Story</h3><p>Together we are stronger. Unity and collaboration are more powerful than working alone.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="Barbie_castelo.jpg" alt="Poster for Barbie & the Diamond Castle">
+            <div class="movie-info">
+                <h2>Barbie & the Diamond Castle (2008)</h2>
+                <button class="details-btn" data-target="details-11">Show Details</button>
+                <div id="details-11" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Best friends Liana and Alexa embark on a dangerous journey to the hidden Diamond Castle to rescue their new friend, Melody, who is trapped inside a magic mirror, and end the rule of the evil Lydia.</p>
+                    <h3>Moral of the Story</h3><p>Friendship is the true treasure. Music and companionship can overcome any obstacle.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="movie-card">
+            <img class="poster" src="Barbie_natal.jpg" alt="Poster for Barbie in a Christmas Carol">
+            <div class="movie-info">
+                <h2>A Christmas Carol (2008)</h2>
+                <button class="details-btn" data-target="details-12">Show Details</button>
+                <div id="details-12" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>This film is an adaptation of Charles Dickens's book, "A Christmas Carol and Other Christmas Stories." In this adaptation, Barbie plays Eden Starling, a glamorous but selfish singing diva in Victorian England. She is visited by three Christmas Spirits who teach her the true meaning of the holiday.</p>
+                    <h3>Moral of the Story</h3><p>It's never too late to change. The spirit of Christmas is about kindness, generosity, and keeping love in your heart.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="Barbiebutterfly.jpg" alt="Poster for Barbie: Mariposa & Her Butterfly Fairy Friends">
+            <div class="movie-info">
+                <h2>Mariposa & Her Butterfly Fairy Friends (2008)</h2>
+                <button class="details-btn" data-target="details-24">Show Details</button>
+                <div id="details-24" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Mariposa is a butterfly fairy who loves to read and dream about the world outside her home in Flutterfield. When the Queen is poisoned by the evil fairy Henna, Mariposa must bravely venture into dangerous lands to find an antidote and save her kingdom.</p>
+                    <h3>Moral of the Story</h3><p>The best thing you can be is yourself. You don't have to fit in to be a true hero.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="barbie_polegar.jpg" alt="Poster for Barbie Presents: Thumbelina">
+            <div class="movie-info">
+                <h2>Barbie Presents: Thumbelina (2009)</h2>
+                <button class="details-btn" data-target="details-13">Show Details</button>
+                <div id="details-13" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Thumbelina is a tiny Twillerbee who lives in a field of wildflowers. When a spoiled girl digs up her patch, she and her friends must prove that even the smallest person can make a big difference.</p>
+                    <h3>Moral of the Story</h3><p>Even the smallest person can make a huge difference. We must all work together to care for our environment.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="Barbie_Mosqueteira.jpg" alt="Poster for Barbie and the Three Musketeers">
+            <div class="movie-info">
+                <h2>The Three Musketeers (2009)</h2>
+                <button class="details-btn" data-target="details-14">Show Details</button>
+                <div id="details-14" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Corinne, a country girl, dreams of becoming a musketeer. She travels to Paris and joins three other girls who share the same dream. Together, they must use their unique skills to protect Prince Louis.</p>
+                    <h3>Moral of the Story</h3><p>True courage and justice are for everyone. Girls can do anything they set their minds to.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="movie-card">
+            <img class="poster" src="Barbie_vida_sereia_1.jpg" alt="Poster for Barbie in a Mermaid Tale">
+            <div class="movie-info">
+                <h2>Barbie in a Mermaid Tale (2010)</h2>
+                <button class="details-btn" data-target="details-15">Show Details</button>
+                <div id="details-15" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Merliah Summers, a champion surfer from Malibu, discovers a shocking family secret: she's a half-mermaid and princess of Oceana. She must embrace her new identity to save her mother and the underwater kingdom.</p>
+                    <h3>Moral of the Story</h3><p>What makes you different might just be your greatest strength.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="movie-card">
+            <img class="poster" src="modaemagia.jpg" alt="Poster for Barbie: A Fashion Fairytale">
+            <div class="movie-info">
+                <h2>A Fashion Fairytale (2010)</h2>
+                <button class="details-btn" data-target="details-16">Show Details</button>
+                <div id="details-16" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Barbie travels to Paris to visit her aunt's fashion house, only to find it's about to be shut down. With the help of three magical Flairies, she uses her creativity to put on a show and save the business.</p>
+                    <h3>Moral of the Story</h3><p>Magic happens when you believe in yourself. Don't be afraid to express your creativity.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="movie-card">
+            <img class="poster" src="Barbie_Fairy_Secret.png" alt="Poster for Barbie: A Fairy Secret">
+            <div class="movie-info">
+                <h2>Barbie: A Fairy Secret (2011)</h2>
+                <button class="details-btn" data-target="details-17">Show Details</button>
+                <div id="details-17" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>When Ken is suddenly whisked away by a group of fairies, Barbie and her rival Raquelle must travel to the secret fairy world of Gloss Angeles to rescue him. They learn that friendship is the real magic.</p>
+                    <h3>Moral of the Story</h3><p>Forgiveness is a powerful tool. The best magic of all is friendship.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="movie-card">
+            <img class="poster" src="BarbieEscola.jpg" alt="Poster for Barbie: Princess Charm School">
+            <div class="movie-info">
+                <h2>Princess Charm School (2011)</h2>
+                <button class="details-btn" data-target="details-18">Show Details</button>
+                <div id="details-18" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Blair Willows wins a lottery to attend the prestigious Princess Charm School. There, she must learn to be a royal lady while uncovering a plot and discovering her true identity as the kingdom's long-lost princess.</p>
+                    <h3>Moral of the Story</h3><p>There's a princess in every girl. Your character and kindness matter more than your background.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="movie-card">
+            <img class="poster" src="Princesaeapopstar.jpg" alt="Poster for The Princess & the Popstar">
+            <div class="movie-info">
+                <h2>The Princess & the Popstar (2012)</h2>
+                <button class="details-btn" data-target="details-20">Show Details</button>
+                <div id="details-20" class="movie-details hidden">
+                    <h3>Synopsis</h3><p>Princess Tori longs for the exciting life of a popstar, while popstar Keira dreams of being a princess. They magically switch places and discover that the other life isn't as easy as it looks.</p>
+                    <h3>Moral of the Story</h3><p>The best thing you can be is yourself. Appreciate the life you have.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        
+        
+    </main>
+
+    <footer>
+        <p>Barbie Movie Catalog &copy; 2025. Made with magic and code.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const detailButtons = document.querySelectorAll('.details-btn');
+            detailButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.dataset.target;
+                    const detailsElement = document.getElementById(targetId);
+                    if (detailsElement) {
+                        detailsElement.classList.toggle('hidden');
+                        const isHidden = detailsElement.classList.contains('hidden');
+                        this.textContent = isHidden ? 'Show Details' : 'Hide Details';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+```
